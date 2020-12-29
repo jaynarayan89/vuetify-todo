@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"newT",
+				"newTask"
+			],
+			[
 				"scheduled",
 				"scheduled_date"
 			],
@@ -67,6 +71,16 @@
 	},
 	"buffers":
 	[
+		{
+			"contents": "$gs\nOn branch main                               \nYour branch is up to date with 'origin/main'.\n\nnothing to commit, working tree clean        \n$gpo\nUsername for 'https://github.com': jaynarayan89\nPassword for 'https://jaynarayan89@github.com': \nEverything up-to-date                 \n$",
+			"settings":
+			{
+				"buffer_size": 285,
+				"line_ending": "Unix",
+				"name": "Login Shell",
+				"scratch": true
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -199,10 +213,13 @@
 	},
 	"expanded_folders":
 	[
-		"/home/jay/Documents/projects/pets/vuetify-todo"
+		"/home/jay/Documents/projects/pets/vuetify-todo",
+		"/home/jay/Documents/projects/pets/vuetify-todo/src",
+		"/home/jay/Documents/projects/pets/vuetify-todo/src/views"
 	],
 	"file_history":
 	[
+		"/home/jay/Documents/projects/pets/vuetify-todo/src/views/Todo.vue",
 		"/home/jay/Documents/projects/abimis/src/App.vue",
 		"/home/jay/Documents/projects/abimis/src/components/Courses/CourseList.vue",
 		"/home/jay/Documents/projects/abimis/src/store/index.js",
@@ -319,6 +336,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			">\n",
+			"title:",
 			"user",
 			"UsersModule",
 			"user",
@@ -342,8 +361,97 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 285,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								285,
+								285
+							]
+						],
+						"settings":
+						{
+							"__vi_external_disable": true,
+							"auto_complete": false,
+							"auto_complete_commit_on_tab": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone_locations":
+							{
+							},
+							"bracket_highlighter.ignore": true,
+							"color_scheme": "Terminus.hidden-color-scheme",
+							"default_dir": "/home/jay/Documents/projects/pets/vuetify-todo",
+							"draw_centered": false,
+							"draw_indent_guides": false,
+							"draw_unicode_white_space": false,
+							"draw_white_space": "none",
+							"gutter": false,
+							"highlight_line": false,
+							"is_widget": true,
+							"result_base_dir": "/home/jay/Documents/projects/pets/vuetify-todo",
+							"result_file_regex": null,
+							"result_line_regex": null,
+							"rulers":
+							[
+								500
+							],
+							"scroll_past_end": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"terminus.highlight_counter": 12,
+							"terminus_view": true,
+							"terminus_view.args":
+							{
+								"auto_close": true,
+								"cancellable": false,
+								"cmd":
+								[
+									"/bin/bash",
+									"-i",
+									"-l"
+								],
+								"config_name": "Login Shell",
+								"cwd": "/home/jay/Documents/projects/pets/vuetify-todo",
+								"env":
+								{
+									"LANG": "en_IN",
+									"TERM": "linux",
+									"TERMINUS_SUBLIME": "1",
+									"TERM_PROGRAM": "Terminus-Sublime"
+								},
+								"file_regex": null,
+								"line_regex": null,
+								"panel_name": null,
+								"tag": null,
+								"timeit": false,
+								"title": null
+							},
+							"terminus_view.cancellable": false,
+							"terminus_view.key.ctrl+k": true,
+							"terminus_view.key.ctrl+p": true,
+							"terminus_view.natural_keyboard": true,
+							"terminus_view.panel_name": null,
+							"terminus_view.tag": null,
+							"terminus_view.viewport_y": 0.0,
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -579,7 +687,7 @@
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 343.0,
 	"status_bar_visible": true,
 	"template_settings":

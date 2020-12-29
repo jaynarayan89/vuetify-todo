@@ -15,9 +15,9 @@
     </v-text-field>
   <v-list
       flat
-     v-if="tasks.length"
+     v-if="$store.state.tasks.length"
     >
-    <div v-for="task in tasks" :id="task.id">
+    <div v-for="task in $store.state.tasks" :id="task.id">
      <v-list-item 
       @click="markTaskAsDone(task.id)"
       :class="{'blue lighten-5':task.done}"
@@ -66,28 +66,21 @@ export default {
 
     markTaskAsDone:function(id)
     {
-     let todo = this.tasks.filter(task=>task.id === id)[0];
-      todo.done = !todo.done;
+      this.$store.commit('markTaskAsDone',id);
     },
     deleteTodo(id)
     {
-      this.tasks = this.tasks.filter(task=>task.id !== id);
+      this.$store.commit('deleteTodo',id);
     },
     addTask()
     {
-      let newTask = {
-        id:Date.now(),
-        title:this.newTodo,
-        done:false
-      }
-      this.tasks.unshift(newTask);
-      this.newTodo = '';
+      this.$store.commit('addTask',this.newTodo);
+      this.newTodo='';
     }
   },
   data(){
   	return {
       newTodo:'',
-  		tasks:[]
   	}
   }
 }
