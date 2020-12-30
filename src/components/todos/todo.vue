@@ -42,7 +42,7 @@ export default {
     },
     deleteTodo(id)
     {
-      this.$store.commit('deleteTodo',id);
+      this.$store.dispatch('deleteTodo',id);
     },
     addTask()
     {

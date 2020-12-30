@@ -74,12 +74,17 @@
 
     <v-main>
      <router-view></router-view>
+      <snack-bar/>
     </v-main>
+   
   </v-app>
 </template>
 
 <script>
   export default {
+    components:{
+      'snack-bar': require('@/components/common/snackbar.vue').default,
+    },
     data: () => ({ drawer: null,
      items: [
           { title: 'ToDo', icon: 'mdi-format-list-checks',to:'/' },

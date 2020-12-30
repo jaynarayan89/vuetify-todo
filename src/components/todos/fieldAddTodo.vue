@@ -24,7 +24,7 @@ export default {
   methods:{
     addTask()
     {
-      this.$store.commit('addTask',this.newTodo);
+      this.$store.dispatch('addTask',this.newTodo);
       this.newTodo='';
     }
   },
