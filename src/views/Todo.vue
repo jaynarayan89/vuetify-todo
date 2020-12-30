@@ -1,87 +1,18 @@
 <template>
   <div class="home">
-    <v-text-field
-    outlined
-    class="pa-3"
-    label="add new todo"
-    append-icon="mdi-plus"
-    clearable
-    hide-details
-    v-model="newTodo"
-    @click:append="addTask()"
-    @keyup.enter="addTask()"
-    >
-      
-    </v-text-field>
-  <v-list
-      flat
-     v-if="$store.state.tasks.length"
-    >
-    <div v-for="task in $store.state.tasks" :id="task.id">
-     <v-list-item 
-      @click="markTaskAsDone(task.id)"
-      :class="{'blue lighten-5':task.done}"
-      >
-          <template v-slot:default>
-            <v-list-item-action>
-              <v-checkbox :input-value="task.done"></v-checkbox>
-            </v-list-item-action>
-
-            <v-list-item-content
-              :class="{'text-decoration-line-through':task.done}"
-            >
-              <v-list-item-title>{{ task.title }}</v-list-item-title>
-             
-            </v-list-item-content>
-            <v-list-item-action>
-              <v-btn 
-              @click.stop="deleteTodo(task.id)"
-              icon
-              >
-                <v-icon color="primary lighten-1">mdi-delete</v-icon>
-              </v-btn>
-            </v-list-item-action>
-          </template>
-     </v-list-item>
-	<v-divider></v-divider>
-      </div>
-    </v-list>
-    <div v-else class="text-h5 pa-4 primary--text" >
-     <p> 
-     No Tasks scheduled. Lets get something done.Add new task using above input. <v-icon class="primary--text">mdi-check</v-icon>
-      </p>
-     
-  </div>
+    <field-add-todo/>
+    <no-todos/>
+    <todo-list/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
   name: 'Todo',
   components: {
+    'field-add-todo': require('@/components/todos/fieldAddTodo.vue').default,
+    'no-todos': require('@/components/todos/noTodos.vue').default,
+    'todo-list': require('@/components/todos/todoList.vue').default,
   },
-  methods:{
-
-    markTaskAsDone:function(id)
-    {
-      this.$store.commit('markTaskAsDone',id);
-    },
-    deleteTodo(id)
-    {
-      this.$store.commit('deleteTodo',id);
-    },
-    addTask()
-    {
-      this.$store.commit('addTask',this.newTodo);
-      this.newTodo='';
-    }
-  },
-  data(){
-  	return {
-      newTodo:'',
-  	}
-  }
 }
 </script>
