@@ -47,6 +47,11 @@ export default new Vuex.Store({
     {
       state.tasks = state.tasks.filter(task=>task.id !== id);
     },
+    saveTaskTitle:function(state,payload)
+    {
+      let todo = state.tasks.filter(task=>task.id === payload.id)[0];
+      todo.title = payload.title;
+    },
     showSnackbar(state,title)
     {
       let timeout = 0
