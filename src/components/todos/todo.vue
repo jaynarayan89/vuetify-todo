@@ -17,15 +17,23 @@
             </v-list-item-content>
             <v-list-item-action>
               <v-btn 
-              @click.stop="deleteTodo(task.id)"
+              @click.stop="dialogs.delete = true"
               icon
               >
+              <!-- deleteTodo(task.id) -->
                 <v-icon color="primary lighten-1">mdi-delete</v-icon>
               </v-btn>
             </v-list-item-action>
+
           </template>
+
      </v-list-item>
   <v-divider></v-divider>
+    <delete-dialog 
+    v-if="dialogs.delete" 
+    :task="task"
+    @close="dialogs.delete = false"
+    />
   </div>
 </template>
 
@@ -48,6 +56,16 @@ export default {
     {
       this.$store.commit('addTask',this.newTodo);
       this.newTodo='';
+    }
+  },
+  components:{
+    'delete-dialog':require('@/components/todos/dialogs/deleteDialog.vue').default
+  },
+  data(){
+    return {
+      dialogs:{
+        delete:false
+      }
     }
   }
 }
