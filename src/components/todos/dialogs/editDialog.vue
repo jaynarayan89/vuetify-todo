@@ -10,7 +10,10 @@
           Edit this task
         </v-card-title>
         <v-card-text>
-          <v-text-field v-model="taskTitle"/>
+          <v-text-field 
+          v-model="taskTitle"
+           @keyup.enter="saveTask"
+           />
       
         </v-card-text>
         <v-card-actions>
@@ -18,6 +21,8 @@
           <v-btn
             text
             @click="saveTask()"
+
+            :disabled="taskInvalid"
           >
             save
           </v-btn>
@@ -38,16 +43,26 @@
     props:['task'],
     data(){
       return{
-        taskTitle: ''
+        taskTitle: null
+      }
+    },
+    computed:{
+      taskInvalid()
+      {
+        return !this.taskTitle || this.taskTitle === this.task.title;
       }
     },
     methods:{
     	saveTask(){
+
+        if(this.taskInvalid)
+          return;
+        
         let payload = {
           id : this.task.id,
           title : this.taskTitle
         }
-        this.$store.commit('saveTaskTitle',payload);
+        this.$store.dispatch('updateTask',payload);
         this.$emit('close');
     	}
     },

@@ -4,14 +4,20 @@
     outlined
     class="pa-3"
     label="add new todo"
-    append-icon="mdi-plus"
     clearable
     hide-details
     v-model="newTodo"
-    @click:append="addTask()"
     @keyup.enter="addTask()"
     >
-      
+       <template v-slot:append>
+            <v-icon
+            color="primary"  
+             @click="addTask()"
+             :disabled="!newTodo"          
+            >           
+            mdi-plus
+          </v-icon>
+       </template>
     </v-text-field>
   </div>
 </template>
@@ -24,6 +30,8 @@ export default {
   methods:{
     addTask()
     {
+      if(!this.newTodo)
+        return;
       this.$store.dispatch('addTask',this.newTodo);
       this.newTodo='';
     }

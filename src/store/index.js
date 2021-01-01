@@ -84,6 +84,12 @@ export default new Vuex.Store({
       commit('showSnackbar','Task deleted');
     },
 
+    updateTask({commit},payload){
+      commit('saveTaskTitle',payload);
+      commit('showSnackbar','Task updated');
+    },
+
+
   },
   modules: {
   }
