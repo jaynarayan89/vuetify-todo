@@ -10,16 +10,19 @@ export default new Vuex.Store({
 			id:1,
 			title:'Hang in there',
 			done:false,
+      dueDate:'2021-01-03'
 		},
 		{
 			id:2,
 			title:'Champions stick through the rainy days',
 			done:false,
+      dueDate:'2021-01-05'
 		},
 		{
 			id:3,
 			title:'The day will come as long as night',
 			done:false,
+      dueDate:null
 		},
   	],
     snackbar:{
@@ -34,7 +37,8 @@ export default new Vuex.Store({
       let newTask = {
         id:Date.now(),
         title:newTitle,
-        done:false
+        done:false,
+        dueDate:null
       }
       state.tasks.unshift(newTask);
     },

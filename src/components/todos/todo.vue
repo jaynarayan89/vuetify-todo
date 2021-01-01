@@ -9,16 +9,27 @@
               <v-checkbox :input-value="task.done"></v-checkbox>
             </v-list-item-action>
 
+
             <v-list-item-content
               :class="{'text-decoration-line-through':task.done}"
             >
               <v-list-item-title>{{ task.title }}</v-list-item-title>
              
             </v-list-item-content>
+            
+
+            <v-list-item-action v-if="task.dueDate">
+                <v-list-item-action-text>
+                  <v-icon  small>
+                    mdi-calendar
+                  </v-icon>
+                  {{ task.dueDate | niceDate }}
+                </v-list-item-action-text>
+            </v-list-item-action>
+
             <v-list-item-action>
-    
- <task-menu :task="task"/>      
-</v-list-item-action>
+              <task-menu :task="task"/>      
+            </v-list-item-action>
 
           </template>
 
@@ -28,7 +39,7 @@
 </template>
 
 <script>
-// @ is an alias to /src
+import {format} from 'date-fns';
 
 export default {
   props: ['task'],
@@ -51,5 +62,10 @@ export default {
   components:{
     'task-menu':require('@/components/todos/taskMenu.vue').default,
   },
+  filters:{
+    niceDate(value){
+      return format(new Date(value),'MMM d');
+    }
+  }
 }
 </script>

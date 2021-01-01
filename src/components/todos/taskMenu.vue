@@ -34,10 +34,17 @@
     :task="task"
     @close="dialogs.delete = false"
     />
+
     <edit-dialog 
     v-if="dialogs.edit" 
     :task="task"
     @close="dialogs.edit = false"
+    />
+
+    <due-date-dialog 
+    v-if="dialogs.dueDate" 
+    :task="task"
+    @close="dialogs.dueDate = false"
     />
   </div>
 </template>
@@ -69,7 +76,8 @@
       ],
       dialogs:{
         delete:false,
-        edit:false
+        edit:false,
+        dueDate:true
       }
     }),
     methods:{
@@ -81,6 +89,7 @@
     components:{
       'delete-dialog':require('@/components/todos/dialogs/deleteDialog.vue').default,
       'edit-dialog':require('@/components/todos/dialogs/editDialog.vue').default,
+      'due-date-dialog':require('@/components/todos/dialogs/dueDateDialog.vue').default,
     }
 
    
