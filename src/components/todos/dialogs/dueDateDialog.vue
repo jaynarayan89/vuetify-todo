@@ -6,16 +6,6 @@
         persistent
         width="290px"
       >
-        <template v-slot:activator="{ on, attrs }">
-          <v-text-field
-            v-model="date"
-            label="Picker in dialog"
-            prepend-icon="mdi-calendar"
-            readonly
-            v-bind="attrs"
-            v-on="on"
-          ></v-text-field>
-        </template>
         <v-date-picker
           v-model="date"
           scrollable
@@ -24,14 +14,14 @@
           <v-btn
             text
             color="primary"
-            @click="modal = false"
+            @click="$emit('close')"
           >
             Cancel
           </v-btn>
           <v-btn
             text
             color="primary"
-            @click="$refs.dialog.save(date)"
+            @click="saveDueDate"
           >
             OK
           </v-btn>
@@ -40,9 +30,26 @@
 </template>
 <script>
   export default {
+    props:['task'],
     data(){
       return{
         date:null
+      }
+    },
+    methods:{
+      saveDueDate(){
+        console.log('saved due');
+        let payload ={
+          id: this.task.id,
+          dueDate:this.date
+        }
+        this.$store.dispatch('updateDueDate',payload)
+        this.$emit('close');
+      }
+    },
+    mounted(){
+      if(this.task.dueDate){
+      this.date = this.task.dueDate;
       }
     }
   }

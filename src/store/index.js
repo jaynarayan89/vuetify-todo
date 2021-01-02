@@ -56,6 +56,11 @@ export default new Vuex.Store({
       let todo = state.tasks.filter(task=>task.id === payload.id)[0];
       todo.title = payload.title;
     },
+     saveTaskDueDate:function(state,payload)
+    {
+      let todo = state.tasks.filter(task=>task.id === payload.id)[0];
+      todo.dueDate = payload.dueDate;
+    },
     showSnackbar(state,title)
     {
       let timeout = 0
@@ -82,7 +87,7 @@ export default new Vuex.Store({
       commit('addTask',newTitle);
       commit('showSnackbar','New Task added');
     },
-     deleteTodo({commit},id)
+    deleteTodo({commit},id)
     {
       commit('deleteTodo',id);
       commit('showSnackbar','Task deleted');
@@ -90,9 +95,13 @@ export default new Vuex.Store({
 
     updateTask({commit},payload){
       commit('saveTaskTitle',payload);
-      commit('showSnackbar','Task updated');
-    },
+      commit('showSnackbar','Due date updated');
+    }, 
 
+    updateDueDate({commit},payload){
+      commit('saveTaskDueDate',payload);
+      commit('showSnackbar','Due date updated');
+    },
 
   },
   modules: {

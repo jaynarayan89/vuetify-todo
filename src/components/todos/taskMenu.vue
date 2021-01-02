@@ -63,7 +63,8 @@
         { title: 'Due Date',
           icon: 'mdi-calendar' ,
           click(){
-            console.log('due date');
+            this.dialogs.dueDate=true;
+
           } 
         },
         { title: 'Delete',
@@ -77,7 +78,7 @@
       dialogs:{
         delete:false,
         edit:false,
-        dueDate:true
+        dueDate:false
       }
     }),
     methods:{
