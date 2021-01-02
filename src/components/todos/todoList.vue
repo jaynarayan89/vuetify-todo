@@ -3,7 +3,7 @@
     flat
      v-if="$store.state.tasks.length"
     >
-    <todo v-for="task in $store.state.tasks" :task="task" />
+    <todo v-for="task in $store.getters.filteredTasks" :task="task" />
     
       
     </v-list>

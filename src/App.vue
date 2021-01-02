@@ -52,24 +52,24 @@
           gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
         ></v-img>
       </template>
-
+<v-container class="pa-0">
+  <v-row >
+    
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-app-bar-title>My Todos</v-app-bar-title>
-
       <v-spacer></v-spacer>
+  </v-row>
+  <v-row class="ml-0 mt-2 ">
+      <v-app-bar-title>My Todos</v-app-bar-title>
+    
+  </v-row>
+</v-container>
 
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
 
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
 
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+
+      <search/>
+      
     </v-app-bar>
 
     <v-main>
@@ -84,6 +84,7 @@
   export default {
     components:{
       'snack-bar': require('@/components/common/snackbar.vue').default,
+      'search': require('@/components/tools/search.vue').default,
     },
     data: () => ({ drawer: null,
      items: [
