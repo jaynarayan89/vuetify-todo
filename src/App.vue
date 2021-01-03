@@ -63,6 +63,9 @@
       <v-app-bar-title>My Todos</v-app-bar-title>
     
   </v-row>
+  <v-row>
+    <live-date-time/>
+  </v-row>
 </v-container>
 
 
@@ -85,6 +88,7 @@
     components:{
       'snack-bar': require('@/components/common/snackbar.vue').default,
       'search': require('@/components/tools/search.vue').default,
+      'live-date-time': require('@/components/tools/liveDateTime.vue').default,
     },
     data: () => ({ drawer: null,
      items: [
