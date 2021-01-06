@@ -4,7 +4,26 @@
     <v-navigation-drawer  
     v-model="drawer"
       app
+      :mobile-breakpoint="768"
       >
+      <v-img
+  height="150"
+class="pa-4 pt-5"
+  src="menu.webp"
+  gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+>
+   <v-avatar size="60" >
+      <img
+        src="https://avatars1.githubusercontent.com/u/6889629?s=460&u=cc3965e5cf81bfbeeea4d4ea32ed33d9f1dc220f&v=4"
+        alt="Jay"
+      
+        class=""
+      >
+    </v-avatar>
+    <div class="white--text text-subtitle-1 font-weight-bold mt-2 ">Jay Patel</div>
+    <div class="white--text text-subtitle-1 font-weight-bold">@jaynarayan89</div>
+
+</v-img>
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="title">
@@ -45,6 +64,8 @@
       prominent
       color="primary"
       src="header.jpg"
+      height="150"
+      dark
     >
       <template v-slot:img="{ props }">
         <v-img

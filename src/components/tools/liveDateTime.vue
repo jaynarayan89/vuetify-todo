@@ -14,11 +14,13 @@
 		methods:{
 			getDate()
 			{
-				return format( new Date(),'dd/MM/yyyy');
+				this.date = format( new Date(),'d MMMM HH:mm:ss');
+				setTimeout(this.getDate,1000);
 			}
 		},
 		mounted(){
-			this.date = this.getDate()
+			this.getDate();
+
 		}
 	}
 </script>
