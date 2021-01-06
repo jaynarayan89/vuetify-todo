@@ -24,4 +24,9 @@ const router = new VueRouter({
   routes
 })
 
+router.beforeEach((to,from,next)=>{
+  document.title = `Todo App :: ${to.name}`
+next();
+})
+
 export default router
