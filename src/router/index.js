@@ -25,7 +25,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to,from,next)=>{
-  document.title = `Todo App :: ${to.name}`
+  document.title = `${process.env.VUE_APP_NAME} :: ${to.name}`
 next();
 })
 

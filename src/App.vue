@@ -27,8 +27,9 @@ class="pa-4 pt-5"
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="title">
-            Vuetify Todo
-          </v-list-item-title>
+          <!-- {{appTitle}} -->
+         {{ $store.state.appName }} 
+           </v-list-item-title>
           <v-list-item-subtitle>
             My awesome todo list
           </v-list-item-subtitle>
@@ -116,5 +117,10 @@ class="pa-4 pt-5"
           { title: 'ToDo', icon: 'mdi-format-list-checks',to:'/' },
           { title: 'About', icon: 'mdi-help-box',to:'/about' },
         ] }),
+    computed:{
+      appTitle(){
+        return process.env.VUE_APP_NAME;
+      }
+    }
   }
 </script>
